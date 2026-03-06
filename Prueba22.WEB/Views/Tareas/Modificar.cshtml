@@ -1,0 +1,39 @@
+﻿@model TareaEntity
+
+
+<div class="row">
+	<div class="col-6">
+		<h2>Lista de tareas</h2>
+	</div>
+	<div class="col-6">
+		<a class="btn btn-primary" asp-controller="Tareas" asp-action="Nuevo">Nuevo</a>
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="col-12">
+		<form asp-controller="Tareas" asp-action="Modificar" method="post">
+
+			<input type="hidden" asp-for="@Model.Id" id="id" name="id-" />
+			<div class="mb-3">
+				<label for="tarea" class="form-label">Tarea</label>
+				<input type="text" class="form-control" id="tarea" name="tarea" asp-for="@Model.Tarea">
+				</div>
+
+				<div class="mb-3">
+					<label for="fechaterminacion" class="form-label">Fecha Terminacion</label>
+					<input type="date" class="form-control" id="fechaterminacion" name="fechaterminacion" asp-for="@Model.FechaTerminacion">
+					</div>
+				<div class="mb-3">
+					<label for="tarea" class="form-label">Descripcion</label>
+					<textarea class="form-control" id="descripcion" name="descripcion" asp-for="@Model.Descripcion"></textarea>
+				</div>
+				<div class="mb-3">
+					<button class="btn btn-secondary" asp-controller="Tareas" asp-action="Index">Cerrar</button>
+					<input type="submit" class="btn btn-success" value="Guardar"></input>
+				</div>
+			</form>
+		
+		</div>
+	</div>

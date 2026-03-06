@@ -1,4 +1,10 @@
+using Microsoft.EntityFrameworkCore;
+using Prueba22.WEB.Data;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<DataContext>(
+    option=>option.UseSqlServer(builder.Configuration.GetConnectionString("BaseDeDatos")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

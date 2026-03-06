@@ -1,0 +1,55 @@
+﻿@model List<TareaEntity>
+
+<div class="row">
+	<div class="col-6">
+		<h2>Lista de tareas</h2>
+	</div>
+	<div class="col-6">
+		<a class="btn btn-primary" asp-controller="Tareas" asp-action="Nuevo">Nuevo</a>
+	</div>
+</div>
+
+
+<div class="row">
+	<div class="col-12">
+		
+		<table class="table">
+			<thead>
+				<tr>
+					<th>
+						Tarea
+					</th>
+					<th>
+						Descripcion
+					</th>
+					<th>
+						Fecha terminacion
+					</th>
+					<th>
+						Aciones
+					</th>
+				</tr>
+			
+			</thead>
+			<tbody>
+				@foreach (var tarea in @Model)
+				{
+					<tr>
+						<td>@tarea.Tarea</td>
+						<td>@tarea.Descripcion</td>
+						<td>@tarea.FechaTerminacion</td>
+						<td>
+							<a class="btn btn-warning asp-controller="Tareas" asp-action="Modificar" asp-route-id="@tarea.Id">Modificar</a>
+							<a class="btn btn-danger" asp-controller="Tareas" asp-action="Borrar" asp-route-id="@tarea.Id">Borrar</a>
+							<a class="btn btn-info" asp-controller="Tareas" asp-action="TerminarTarea" asp-route-id="@tarea.Id">Terminar tarea...</a>
+						</td>
+					</tr>
+				}
+			
+			</tbody>
+		</table>
+		
+    
+	</ul>
+</div>
+</div>
